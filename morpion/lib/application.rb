@@ -4,7 +4,7 @@ class Application
 
 	def perform
 		puts "bienvenue dans morpion"
-
+		#menu du jeux
 		while true
 			puts "tu veux faire quoi?"
 			puts "1.joueur 1vs1"

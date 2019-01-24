@@ -1,6 +1,6 @@
 class Player
 	attr_accessor :player1, :player2
-
+	#fonction de sélection des joueur
 	def choix_player
 		puts "choix player :"
 		puts "pseudo joueur1 :"

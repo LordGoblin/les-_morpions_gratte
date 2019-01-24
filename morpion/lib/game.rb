@@ -10,7 +10,7 @@ class Game
 		@array_game = [" "," "," "," "," "," "," "," "," "]
 		@valeur_fin = 0
 	end
-
+	#fonction saisie des joueur
 	def array_start(a)
 		if a == 1
 			puts "#{@player[0].upcase} joue :"
@@ -20,38 +20,37 @@ class Game
 			a = "o"
 		end
 		while true
-			puts "choix case??"
 			choix_player = gets.chomp.to_s.downcase
 			if choix_player.size == 2 || choix_player[0..-2].ord == 99 || choix_player[0..-2].ord == 97 || choix_player[0..-2].ord == 98 || choix_player[1..-1].to_i < 3 || choix_player[1..-1].to_i >= 1
 				case ((choix_player[0..-2].ord - 96).to_i)
 				when 1
 				 	if @array_game[(choix_player[1..-1].to_i)-1] != " "
-				 		ptit_fraze_hala_kon(1)
+				 		@board.ptit_fraze_hala_kon(1)
 				 	else
 				 		@array_game[(choix_player[1..-1].to_i)-1] = a
 				 		break
 				 	end
 				when 2
 					if @array_game[(2 + choix_player[1..-1].to_i)] != " "
-						ptit_fraze_hala_kon(1)
+						@board.ptit_fraze_hala_kon(1)
 					else
 				 		@array_game[(2 + choix_player[1..-1].to_i)] = a
 				 		break
 				 	end
 				when 3
 					if @array_game[(5 + choix_player[1..-1].to_i)] != " "
-						ptit_fraze_hala_kon(1)
+						@board.ptit_fraze_hala_kon(1)
 					else
 				 		@array_game[(5 + choix_player[1..-1].to_i)] = a
 				 		break
 				 	end
 				end
 			else
-				ptit_fraze_hala_kon(2)
+				@board.ptit_fraze_hala_kon(2)
 			end
 		end
 	end
-
+	 #fonction qui compte les tours et termine la parti sur une égalité
 	def test_fin
 		@valeur_fin = @valeur_fin + 1
 		if @valeur_fin >= 9
@@ -62,30 +61,26 @@ class Game
 		end
 		return true
 	end
-
+	#fonction nettoyage
 	def clean
 		system("clear")
 	end
-
+	#fonction qui determine si un joueur a gagner la parti 
 	def player_win(b)
 		if b == 1
 			b = "x"
-			a = @array_game.flatten.join
-			a = a.gsub(/[o]/, ' ')
 		else
 			b = "o"
-			a = @array_game.flatten.join
-			a = a.gsub(/[x]/, ' ')
 		end
-		if a == "  x  x  x" || a == "  o  o  o" || a == " x  x  x " || a == " o  o  o " || a == "x  x  x  " || a == "o  o  o  "
+		if @array_game[2] == b && @array_game[5] == b && @array_game[8] == b || @array_game[1] == b && @array_game[4] == b && @array_game[7] == b || @array_game[0] == b && @array_game[3] == b && @array_game[6] == b
 			clean
 			fonction_qui_a_pas_de_nom(b)
 			return false
-		elsif a == "xxx      " || a == "ooo      " || a == "   xxx   " || a == "   000   " || a == "      xxx" || a == "      ooo"
+		elsif @array_game[0] == b && @array_game[1] == b && @array_game[2] == b || @array_game[3] == b && @array_game[4] == b && @array_game[5] == b || @array_game[6] == b && @array_game[7] == b && @array_game[8] == b
 			clean
 			fonction_qui_a_pas_de_nom(b)
 			return false
-		elsif a == "x   x   x" || a == "o   o   o" || a == "  x x x  " || a == "  o o o  "
+		elsif @array_game[0] == b && @array_game[4] == b && @array_game[8] == b || @array_game[2] == b && @array_game[4] == b && @array_game[6] == b
 			clean
 			fonction_qui_a_pas_de_nom(b)
 			return false
@@ -93,7 +88,7 @@ class Game
 			return true
 		end
 	end
-
+	#fonction qui porte bien son nom
 	def fonction_qui_a_pas_de_nom(a)
 		if a == "x"
 			@board.win_player(@player[0])
@@ -104,12 +99,12 @@ class Game
 		end
 		score_table
 	end
-
+	#affiche le score et le tableau
 	def score_table
 		@board.score_player(@player,@score)
 		@board.table(@array_game)	
 	end
-
+	#fonction qui gere la parti
 	def start
 		while true
 			clean
@@ -126,7 +121,7 @@ class Game
 			end
 		end
 	end
-
+	#fonction qui lance une parti 
 	def perform
 		while true
 			@valeur_fin = 0

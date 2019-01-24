@@ -2,7 +2,7 @@ require 'boardcase'
 
 class Board
 	attr_accessor :board
-
+	#fonction qui affiche la table
 	def table(array_table)
 		puts "   _____1___________2____________3_____ "
 		puts "  |           |           |            |"
@@ -21,11 +21,11 @@ class Board
 		puts "  |    #{array_table[6]*3}    |    #{array_table[7]*3}    |    #{array_table[8]*3}     |"
 		puts "  |___________|___________|____________|"
 	end
-
+	#fonction pour les score
 	def score_player(player,score)
 		puts "|#{player[0]}: #{score[0]}     |_SCORE_|     #{player[1]}: #{score[1]}|\n\n"
 	end
-
+	#fonction qui porte bien son nom
 	def ptit_fraze_hala_kon(a)
 		case a
 		when 1
@@ -34,7 +34,7 @@ class Board
 			puts "pas les bonne valeur"
 		end
 	end
-
+	#fonction qui affiche le resultat d'une parti
 	def win_player(a)
 		if a == "égale"
 			puts "***************************"
