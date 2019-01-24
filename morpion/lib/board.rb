@@ -29,9 +29,9 @@ class Board
 	def ptit_fraze_hala_kon(a)
 		case a
 		when 1
-			puts "il y a deja une valeur"
+			puts "tricheur"
 		when 2
-			puts "pas les bonne valeur"
+			puts "tu t'es trompé"
 		end
 	end
 	#fonction qui affiche le resultat d'une parti

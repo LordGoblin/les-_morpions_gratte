@@ -6,9 +6,9 @@ class Application
 		puts "bienvenue dans morpion"
 		#menu du jeux
 		while true
-			puts "tu veux faire quoi?"
+			puts "tu veu faire quoi?"
 			puts "1.joueur 1vs1"
-			puts "3.quitter l'app"
+			puts "3.quit l'app"
 			choix_player = gets.chomp.to_i
 			case choix_player
 			when 1
