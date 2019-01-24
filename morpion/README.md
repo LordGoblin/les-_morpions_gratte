@@ -7,9 +7,13 @@ $ ruby app.rb
 Le projet se subdivise en plusieurs classes contenues dans des fichiers distincts du dossier lib :
 
 application.rb redirige l'utilisateur vers l'execution ou la sortie du programme
+
 player.rb integre les 2 joueurs
+
 board.rb affiche le jeu
+
 game.rb gere la parti
+
 le projet Morpion est conçu pour jouer à 2 joueurs. Entrez le nom de chacun des joueurs au debut du jeu.
 
 Enjoy !
