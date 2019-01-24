@@ -4,7 +4,7 @@ Pour activer le programme , entrez la ligne de code suivante dans le terminal au
 
 $ ruby app.rb
 
-Le projet se subdivise en plusieurs classes contenues dans des fichiers distincts du dossier lib :
+Le projet se divise en plusieurs classes contenues dans des fichiers du dossier lib :
 
 application.rb redirige l'utilisateur vers l'execution ou la sortie du programme
 
