@@ -122,6 +122,14 @@ class Game
 			end
 		end
 	end
+	#fonction save
+	def save
+		a = []
+		File.open("db/save.csv", "a") do |f|
+			a = "|#{player[0]}: #{score[0]}     |_SCORE_|     #{player[1]}: #{score[1]}|"
+ 		 	f.write(a)
+ 		end
+	end
 	#fonction qui lance une parti 
 	def perform
 		while true
@@ -140,5 +148,6 @@ class Game
 				break
 			end
 		end
+	save	
 	end
 end

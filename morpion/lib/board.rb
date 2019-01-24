@@ -1,4 +1,3 @@
-require 'boardcase'
 require 'colorize'
 
 class Board
