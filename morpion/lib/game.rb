@@ -1,5 +1,6 @@
 require 'player'
 require 'board'
+require 'colorize'
 
 class Game
 	attr_accessor :in_game, :score, :array_game, :player, :valeur_fin
@@ -13,10 +14,10 @@ class Game
 	#fonction saisie des joueur
 	def array_start(a)
 		if a == 1
-			puts "#{@player[0].upcase} joue :"
+			puts "#{@player[0].upcase} joue :".colorize(:blue) 
 			a = "x"
 		else 
-			puts "#{@player[1].upcase} joue :"
+			puts "#{@player[1].upcase} joue :".colorize(:blue) 
 			a = "o"
 		end
 		while true
@@ -126,8 +127,8 @@ class Game
 		while true
 			@valeur_fin = 0
 			@array_game = [" "," "," "," "," "," "," "," "," "]
-			puts "1.commencer"
-			puts "3.retour menu"
+			puts "1.commencer".colorize(:blue) 
+			puts "3.retour menu".colorize(:blue) 
 			case gets.chomp.to_i
 			when 1
 				clean
